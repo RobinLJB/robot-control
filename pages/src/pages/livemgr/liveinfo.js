@@ -20,11 +20,13 @@ import Infrared from '@/pages/infrared.js';
 class LivePlay extends React.Component {
 
   render() {
+
+    const poster = `${ROOT_PATH}/video.jpeg`;
     return(
         <video style={{
           height : '100%',
           width : '100%',
-        }} poster="/video.jpeg" autoPlay={true}  src="http://common.qupai.me/player/qupai.mp4" controls="controls" >
+        }} poster={poster} autoPlay={true}  src="http://common.qupai.me/player/qupai.mp4" controls="controls" >
         </video> 
     )
   }

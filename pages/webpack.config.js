@@ -105,6 +105,9 @@ module.exports = {
       //js导入分类
       chunks: ["vendor", "app"]
     }),
+    new webpack.DefinePlugin({// definePlugin 接收字符串插入到代码当中, 所以你需要的话可以写上 JS 的字符串
+            ROOT_PATH : "'file://"+__dirname+"/build/'"
+    }),
     //js分类插件 依赖包
     new webpack.optimize.CommonsChunkPlugin({
       name: "vendor",
@@ -124,7 +127,7 @@ module.exports = {
       {
         from: __dirname + "/src/tinymce.min.js",
         to: "[name].[ext]"
-      },{
+      },,{
         from: __dirname + "/src/langs/zh_CN.js",
         to: "langs/[name].[ext]"
       }

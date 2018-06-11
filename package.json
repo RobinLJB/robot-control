@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "electron .",
-    "dev": "electron --debug=5858 index.dev.js"
+    "dev": "electron --debug=5858 index.dev.js",
+    "build": "electron-packager ./ --all --out ./build"
   },
   "author": "Robin",
   "license": "MIT",

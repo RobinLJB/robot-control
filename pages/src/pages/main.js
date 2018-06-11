@@ -39,8 +39,8 @@ export default class Index extends React.Component {
     collapsed : true,
     isRadarOn : false,
     isInfraredOn  : false,
-    radarWindow : null,
-    infraredWindow : null
+    // radarWindow : null,
+    // infraredWindow : null
   }
 
   render() {
@@ -237,29 +237,29 @@ export default class Index extends React.Component {
 
   onRadarButtonOnClick = function (){
        const me = this;
-      const BrowserWindow =  electron.remote.BrowserWindow;
-      if(this.state.isRadarOn){
-        let win = this.state.radarWindow;
-        if(win&&!win.isDestroyed()){
-          win.focus();
-        }
-      }else{
-      let win = new BrowserWindow({ title : '雷达成像',width: 400, height: 320 , alwaysOnTop : true , backgroundColor: '#2e2c29'})
-      win.on('close', function () { 
-         win = null
-         me.setState({
-          isRadarOn: false,
-          infraredWindow : null
-        })
-      })
-      win.loadURL("http://localhost:8191/#/radar")
+      // const BrowserWindow =  electron.remote.BrowserWindow;
+      // if(this.state.isRadarOn){
+      //   let win = this.state.radarWindow;
+      //   if(win&&!win.isDestroyed()){
+      //     win.focus();
+      //   }
+      // }else{
+      // let win = new BrowserWindow({ title : '雷达成像',width: 400, height: 320 , alwaysOnTop : true , backgroundColor: '#2e2c29'})
+      // win.on('close', function () { 
+      //    win = null
+      //    me.setState({
+      //     isRadarOn: false,
+      //     infraredWindow : null
+      //   })
+      // })
+      // win.loadURL("http://localhost:8191/#/radar")
       this.setState({
         isRadarOn : true,
-        radarWindow : win
+        // radarWindow : win
       })
 
-      win.show()
-    }
+      // win.show()
+    // }
       
   }.bind(this)
 
@@ -272,28 +272,28 @@ export default class Index extends React.Component {
 
  onInfraredButtonOnClick = function (){
       const me = this;
-      const BrowserWindow =  electron.remote.BrowserWindow;
-      if(this.state.isInfraredOn){
-        let win = this.state.infraredWindow;
-        if(win&&!win.isDestroyed()){
-          win.focus();
-        }
-      }else{
-      let win = new BrowserWindow({ title : '红外成像', width: 400, height: 320 , alwaysOnTop : true , backgroundColor: '#2e2c29'})
-      win.on('close', function () { 
-        win = null ;
-        me.setState({
-          isInfraredOn: false,
-          infraredWindow : null
-        })
-      })
-      win.loadURL("http://localhost:8191/#/infrared")
+      // const BrowserWindow =  electron.remote.BrowserWindow;
+      // if(this.state.isInfraredOn){
+      //   let win = this.state.infraredWindow;
+      //   if(win&&!win.isDestroyed()){
+      //     win.focus();
+      //   }
+      // }else{
+      // let win = new BrowserWindow({ title : '红外成像', width: 400, height: 320 , alwaysOnTop : true , backgroundColor: '#2e2c29'})
+      // win.on('close', function () { 
+      //   win = null ;
+      //   me.setState({
+      //     isInfraredOn: false,
+      //     infraredWindow : null
+      //   })
+      // })
+      // win.loadURL("http://localhost:8191/#/infrared")
       this.setState({
         isInfraredOn: true,
-        infraredWindow : win
+       // infraredWindow : win
       })
-      win.show()
-    }
+      // win.show()
+    // }
   }.bind(this)
 
   onInfraredButtonOffClick = function (){
@@ -304,25 +304,25 @@ export default class Index extends React.Component {
   }.bind(this)
 
   componentWillUpdate(nextProps, nextState) {
-        if(this.state.isRadarOn&&!nextState.isRadarOn){
-          if(this.state.radarWindow&&!this.state.radarWindow.isDestroyed()){
-            try{
-              this.state.radarWindow.close();
-            }catch(e){
-              console.log(e)
-            }
-          }
-        }
+        // if(this.state.isRadarOn&&!nextState.isRadarOn){
+        //   if(this.state.radarWindow&&!this.state.radarWindow.isDestroyed()){
+        //     try{
+        //       this.state.radarWindow.close();
+        //     }catch(e){
+        //       console.log(e)
+        //     }
+        //   }
+        // }
 
-        if(this.state.isInfraredOn&&!nextState.isInfraredOn){
-          if(this.state.infraredWindow&&!this.state.infraredWindow.isDestroyed()){
-            try{
-              this.state.infraredWindow.close();
-            }catch(e){
-              console.log(e)
-            }
-          }
-        }
+        // if(this.state.isInfraredOn&&!nextState.isInfraredOn){
+        //   if(this.state.infraredWindow&&!this.state.infraredWindow.isDestroyed()){
+        //     try{
+        //       this.state.infraredWindow.close();
+        //     }catch(e){
+        //       console.log(e)
+        //     }
+        //   }
+        // }
   }
 
   static contextTypes = {

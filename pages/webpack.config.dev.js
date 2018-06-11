@@ -126,6 +126,9 @@ module.exports = {
       //js导入分类
       chunks: ["vendor", "app"]
     }),
+    new webpack.DefinePlugin({// definePlugin 接收字符串插入到代码当中, 所以你需要的话可以写上 JS 的字符串
+            ROOT_PATH : "'http://localhost:8191/'" 
+    }),
     //热部署插件
     new webpack.HotModuleReplacementPlugin(),
     //js分类插件 依赖包

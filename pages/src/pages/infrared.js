@@ -6,11 +6,12 @@ import {Helmet} from "react-helmet";
 class LivePlay extends React.Component {
 
   render() {
+    const poster = `${ROOT_PATH}/infrared.jpg`;
     return(
         <video style={{
           height : '100%',
           width : '100%',
-        }} poster="/infrared.jpg" autoPlay={true}  src="http://common.qupai.me/player/qupai.mp4" controls="controls" >
+        }} poster={poster} autoPlay={true}  src="http://common.qupai.me/player/qupai.mp4" controls="controls" >
         </video> 
     )
   }
